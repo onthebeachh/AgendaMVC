@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ibN-tI-Kc6">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--Persons-->
+        <scene sceneID="BXX-hI-eUj">
+            <objects>
+                <tableViewController id="7z1-yj-Cab" customClass="PersonController" customModule="TableWithSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="y9K-JS-mm6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="gyp-gA-KtN">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="7z1-yj-Cab" id="zle-is-bSd"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="dGf-YH-iom">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dGf-YH-iom" id="7bT-o9-uc5">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7z1-yj-Cab" id="C9B-PL-cCq"/>
+                            <outlet property="delegate" destination="7z1-yj-Cab" id="ed9-wF-pbo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Persons" id="b7a-Us-AqP"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="RM7-AW-GtR" id="9rw-n4-Yfb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UUh-Fc-fli" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="RM7-AW-GtR">
+                    <connections>
+                        <outlet property="delegate" destination="7z1-yj-Cab" id="EIh-GT-ozp"/>
+                        <outlet property="searchBar" destination="gyp-gA-KtN" id="Vfk-ha-LJf"/>
+                        <outlet property="searchContentsController" destination="7z1-yj-Cab" id="AwK-HS-W0w"/>
+                        <outlet property="searchResultsDataSource" destination="7z1-yj-Cab" id="5e8-zO-bMx"/>
+                        <outlet property="searchResultsDelegate" destination="7z1-yj-Cab" id="fnD-SG-m5g"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="543" y="237"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bcq-ub-2xL">
+            <objects>
+                <navigationController id="ibN-tI-Kc6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LFW-cG-zFd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7z1-yj-Cab" kind="relationship" relationship="rootViewController" id="HX2-rf-Gqb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ow7-nd-c2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-277" y="237"/>
+        </scene>
+    </scenes>
+</document>
