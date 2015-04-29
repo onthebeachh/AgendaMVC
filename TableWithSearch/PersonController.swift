@@ -16,12 +16,26 @@ class PersonController: UITableViewController{
         super.viewDidLoad()
         
         self.persons = LibraryAPI.sharedInstance.getAllPersons()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"showPersons:", name: "EndTableContentLoading", object: nil)
+       
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func showPersons(notification: NSNotification){
+        
+        
+        println("showpersons")
+        let userInfo = notification.userInfo as [String: AnyObject]
+        var allPersons = userInfo["allPersons"] as [Person]
+        self.persons = allPersons
+        
         self.tableView.reloadData()
         
         
-
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

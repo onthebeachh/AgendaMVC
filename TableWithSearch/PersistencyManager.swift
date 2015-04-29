@@ -14,24 +14,36 @@ class PersistencyManager: NSObject {
     private var persons = [Person]()
     
     override init (){
+        super.init()
         
-        persons = [
-            Person(name: "Sergio" ,socialGroup: "Rich"),
-            Person(name: "Esteban" ,socialGroup: "Poor"),
-            Person(name: "Daniel", socialGroup: "Poor"),
-            Person(name: "Juan", socialGroup: "Poor"),
-            Person(name: "Katie", socialGroup: "Rich"),
-            Person(name: "Diego", socialGroup: "Homeless"),
-            Person(name: "Mane", socialGroup: "Diego's"),
-            Person(name: "Nikita", socialGroup: "Poor"),
-            Person(name: "Pablo", socialGroup: "Fucked up")
-        ]
+        var query = PFQuery(className:"Person")
         
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objects = objects as? [PFObject] {
+                    for p in objects {
+                        var person : Person = Person(name: p["name"] as String , socialGroup: p["socialGroup"] as String)
+                        self.persons.append(person)
+                    }
+                    NSNotificationCenter.defaultCenter().postNotificationName("EndTableContentLoading", object: self, userInfo: ["allPersons": self.persons])
+                }
+            } else {
+            }}
+
+        /*var allPersons = query.findObjects()
+        if let allPersons = allPersons as? [PFObject]{
+            for p in allPersons {
+                var person : Person = Person(name: p["name"] as String , socialGroup: p["socialGroup"] as String)
+                self.persons.append(person)
+            }
+        
+        }*/
         
     }
-    
+
     func GetAllPersons() -> [Person] {
-        return persons
+
+        return (persons)
     }
-   
+
 }

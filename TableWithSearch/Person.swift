@@ -12,6 +12,7 @@ class Person: NSObject {
     
     let socialGroup : String = String()
     let name : String = String()
+    let active : Bool = true
  
     init(name :String, socialGroup: String){
         self.socialGroup = socialGroup
