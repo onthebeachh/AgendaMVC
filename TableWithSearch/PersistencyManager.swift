@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class PersistencyManager: NSObject {
     
     private var persons = [Person]()
     
     override init (){
-    
+        
         persons = [
             Person(name: "Sergio" ,socialGroup: "Rich"),
             Person(name: "Esteban" ,socialGroup: "Poor"),
@@ -25,6 +26,8 @@ class PersistencyManager: NSObject {
             Person(name: "Nikita", socialGroup: "Poor"),
             Person(name: "Pablo", socialGroup: "Fucked up")
         ]
+        
+        
     }
     
     func GetAllPersons() -> [Person] {

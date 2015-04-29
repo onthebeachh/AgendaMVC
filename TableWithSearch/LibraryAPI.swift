@@ -19,10 +19,8 @@ class LibraryAPI: NSObject {
     }
     
     override init(){
-        
         persistencyManager = PersistencyManager()
         super.init()
-        
     }
     
     

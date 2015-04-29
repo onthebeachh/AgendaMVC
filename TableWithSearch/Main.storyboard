@@ -33,9 +33,12 @@
                             <outlet property="delegate" destination="7z1-yj-Cab" id="ed9-wF-pbo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Persons" id="b7a-Us-AqP"/>
+                    <navigationItem key="navigationItem" title="Persons" id="b7a-Us-AqP">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="EJ5-Fz-HWu"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="RM7-AW-GtR" id="9rw-n4-Yfb"/>
+                        <segue destination="Nd3-wf-qtl" kind="show" id="xnq-2r-UUA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUh-Fc-fli" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -50,6 +53,24 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="543" y="237"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DGQ-vE-deF">
+            <objects>
+                <viewController id="Nd3-wf-qtl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PWG-ez-9az"/>
+                        <viewControllerLayoutGuide type="bottom" id="cnj-rD-Fb0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rQs-2N-zwR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p76-5b-45d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="973"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bcq-ub-2xL">
