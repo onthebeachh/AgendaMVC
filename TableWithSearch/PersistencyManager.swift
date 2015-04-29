@@ -25,20 +25,12 @@ class PersistencyManager: NSObject {
                         var person : Person = Person(name: p["name"] as String , socialGroup: p["socialGroup"] as String)
                         self.persons.append(person)
                     }
-                    NSNotificationCenter.defaultCenter().postNotificationName("EndTableContentLoading", object: self, userInfo: ["allPersons": self.persons])
+                //Notificate that all persons have been loaded.
+                NSNotificationCenter.defaultCenter().postNotificationName("EndTableContentLoading", object: self, userInfo: ["allPersons": self.persons])
                 }
             } else {
             }}
-
-        /*var allPersons = query.findObjects()
-        if let allPersons = allPersons as? [PFObject]{
-            for p in allPersons {
-                var person : Person = Person(name: p["name"] as String , socialGroup: p["socialGroup"] as String)
-                self.persons.append(person)
-            }
-        
-        }*/
-        
+  
     }
 
     func GetAllPersons() -> [Person] {

@@ -25,9 +25,8 @@ class PersonController: UITableViewController{
     }
     
     func showPersons(notification: NSNotification){
-        
-        
-        println("showpersons")
+        //Proccess a notification, in order to reload the table content.
+
         let userInfo = notification.userInfo as [String: AnyObject]
         var allPersons = userInfo["allPersons"] as [Person]
         self.persons = allPersons
